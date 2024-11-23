@@ -2,24 +2,23 @@ import mysql from "mysql";
 
 // conexão na etec
 
-const conexao = mysql.createConnection({
-    host: 'localhost',
-    port: '3302',
-    user: 'root',
-    password: 'root',
-    database: 'bdlily'
-})
+// const conexao = mysql.createConnection({
+//     host: 'localhost',
+//     port: '3302',
+//     user: 'root',
+//     password: 'password',
+//     database: 'bdlily'
+// })
 
 //conexão em casa
 
-// const conexao = mysql.createConnection({
-//   host: "localhost",
-//   port: "3306",
-//   user: "root",
-//   password: "root",
-//   database: "bdlily",
-// });
-
+const conexao = mysql.createConnection({
+  host: "localhost",
+  port: "3306",
+  user: "root",
+  password: "root",
+  database: "bdlily",
+});
 try {
   conexao.connect();
 } catch (error) {

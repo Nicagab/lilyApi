@@ -14,11 +14,11 @@ class DiaRepository {
     return consult(sql, id, "Não foi possível encontrar");
   }
   findSintomas(id){
-    const sql = `SELECT nome, tipo FROM dia as A INNER JOIN sintoma as B INNER JOIN dia_sintoma as C on b.idSintoma = c.idSintoma AND a.idDia = c.idDia`
+    const sql = `SELECT nome, tipo FROM dia as A INNER JOIN sintoma as B INNER JOIN dia_sintoma as C on b.idSintoma = c.idSintoma AND a.idDia = c.idDia WHERE a.idDia = ?`
     return consult(sql, id, "Não foi possível encontrar")
   }
   findEventos(id){
-    const sql = `SELECT nome, horario FROM dia as A INNER JOIN evento as B INNER JOIN dia_evento as C on b.idEvento = c.idEvento AND a.idDia = c.idDia`
+    const sql = `SELECT nome, horario FROM dia as A INNER JOIN evento as B INNER JOIN dia_evento as C on b.idEvento = c.idEvento AND a.idDia = c.idDia WHERE a.idDia = ?`
     return consult(sql, id, "Não foi possível encontrar")
   }
   update(dia, id) {
