@@ -1,4 +1,5 @@
 import { Router } from "express";
+import upload from "./app/controllers/Upload.js";
 
 import UsuarioController from "./app/controllers/usuarioController.js";
 import ProfissionalController from "./app/controllers/profissionalController.js";
@@ -123,7 +124,7 @@ router.delete("/telefone/:id", TelefoneController.delete);
 
 router.get("/imagem", ImagemController.index);
 router.get("/imagem/:id", ImagemController.show);
-router.post("/imagem", ImagemController.store);
+router.post("/imagem", upload.single("image"), ImagemController.store);
 router.put("/imagem/:id", ImagemController.update);
 router.delete("/imagem/:id", ImagemController.delete);
 
