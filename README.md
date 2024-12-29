@@ -14,17 +14,17 @@
 
 # Métodos suportados:
 
-|GET|Retorna dados de um ou mais registros|
-|POST|Adiciona um novo dado|
-|PUT|Altera um dado já existente|
-|DELETE|Exclui um dado|
+| GET | Retorna dados de um ou mais registros |
+| POST |Adiciona um novo dado |
+| PUT | Altera um dado já existente |
+| DELETE | Exclui um dado |
 
 # Status Code HTTP:
 
-|200|Sucesso (Dados encontrados)|
-|201|Sucesso (Dados criados/alterados)|
-|400|Erro na criação/alteração de dados|
-|404|Erro no retorno de dados|
+| 200 | Sucesso (Dados encontrados) |
+| 201 | Sucesso (Dados criados/alterados) |
+| 400 | Erro na criação/alteração de dados |
+| 404 | Erro no retorno de dados |
 
 # Recursos
 
