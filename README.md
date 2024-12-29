@@ -14,6 +14,7 @@
 
 # Métodos suportados:
 
+| Método | Retorno |
 | --- | --- |
 | GET | Retorna dados de um ou mais registros |
 | POST |Adiciona um novo dado |
@@ -22,6 +23,7 @@
 
 # Status Code HTTP:
 
+| Código | Significado |
 | --- | --- |
 | 200 | Sucesso (Dados encontrados) |
 | 201 | Sucesso (Dados criados/alterados) |
