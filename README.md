@@ -134,20 +134,742 @@ Informações dos calendários dos usuários
 	"changedRows": 0
 }
 ```
+
+### Excluir (Delete) [DELETE calendario/{id}]
+
+- Response 200 (application/json)
+  
+```
+{
+	"fieldCount": 0,
+	"affectedRows": 1,
+	"insertId": 0,
+	"serverStatus": 2,
+	"warningCount": 0,
+	"message": "",
+	"protocol41": true,
+	"changedRows": 0
+}
+```
     
 ## Comentários
+
+Informações dos comentários dos usuários/parceiros
+
+### Listar (List) [GET /]
+
+- Response 200 (application/json)
+ 
+```
+```
+
+### Novo (create) [POST /]
+
+- Atributos (object)
+ 
+- Request (application/json)
+  - Body
+ 
+```
+```
+
+- Response 201 (application/json)
+  
+```
+```
+### Editar (Update) [PUT //{id}]
+
+- Request (application/json)
+  - Body
+ 
+```
+  {
+  }
+```
+
+- Response 201 (application/json)
+  
+```
+```
+
+### Excluir (Delete) [DELETE /{id}]
+
+- Response 200 (application/json)
+  
+```
+```
+
 ## Conteúdos
+
+### Listar (List) [GET /]
+
+- Response 200 (application/json)
+ 
+```
+```
+
+### Novo (create) [POST /]
+
+- Atributos (object)
+ 
+- Request (application/json)
+  - Body
+ 
+```
+```
+
+- Response 201 (application/json)
+  
+```
+```
+### Editar (Update) [PUT //{id}]
+
+- Request (application/json)
+  - Body
+ 
+```
+  {
+  }
+```
+
+- Response 201 (application/json)
+  
+```
+```
+
+### Excluir (Delete) [DELETE /{id}]
+
+- Response 200 (application/json)
+  
+```
+```
+
 ## Dias
+
+### Listar (List) [GET /]
+
+- Response 200 (application/json)
+ 
+```
+```
+
+### Novo (create) [POST /]
+
+- Atributos (object)
+ 
+- Request (application/json)
+  - Body
+ 
+```
+```
+
+- Response 201 (application/json)
+  
+```
+```
+### Editar (Update) [PUT //{id}]
+
+- Request (application/json)
+  - Body
+ 
+```
+  {
+  }
+```
+
+- Response 201 (application/json)
+  
+```
+```
+
+### Excluir (Delete) [DELETE /{id}]
+
+- Response 200 (application/json)
+  
+```
+```
+
 ### Dias_Eventos
+
+### Listar (List) [GET /]
+
+- Response 200 (application/json)
+ 
+```
+```
+
+### Novo (create) [POST /]
+
+- Atributos (object)
+ 
+- Request (application/json)
+  - Body
+ 
+```
+```
+
+- Response 201 (application/json)
+  
+```
+```
+### Editar (Update) [PUT //{id}]
+
+- Request (application/json)
+  - Body
+ 
+```
+  {
+  }
+```
+
+- Response 201 (application/json)
+  
+```
+```
+
+### Excluir (Delete) [DELETE /{id}]
+
+- Response 200 (application/json)
+  
+```
+```
+
 ### Dias_Sintomas
+
+### Listar (List) [GET /]
+
+- Response 200 (application/json)
+ 
+```
+```
+
+### Novo (create) [POST /]
+
+- Atributos (object)
+ 
+- Request (application/json)
+  - Body
+ 
+```
+```
+
+- Response 201 (application/json)
+  
+```
+```
+### Editar (Update) [PUT //{id}]
+
+- Request (application/json)
+  - Body
+ 
+```
+  {
+  }
+```
+
+- Response 201 (application/json)
+  
+```
+```
+
+### Excluir (Delete) [DELETE /{id}]
+
+- Response 200 (application/json)
+  
+```
+```
+
 ## Eventos
+
+### Listar (List) [GET /]
+
+- Response 200 (application/json)
+ 
+```
+```
+
+### Novo (create) [POST /]
+
+- Atributos (object)
+ 
+- Request (application/json)
+  - Body
+ 
+```
+```
+
+- Response 201 (application/json)
+  
+```
+```
+### Editar (Update) [PUT //{id}]
+
+- Request (application/json)
+  - Body
+ 
+```
+  {
+  }
+```
+
+- Response 201 (application/json)
+  
+```
+```
+
+### Excluir (Delete) [DELETE /{id}]
+
+- Response 200 (application/json)
+  
+```
+```
+
 ## Imagens
+
+### Listar (List) [GET /]
+
+- Response 200 (application/json)
+ 
+```
+```
+
+### Novo (create) [POST /]
+
+- Atributos (object)
+ 
+- Request (application/json)
+  - Body
+ 
+```
+```
+
+- Response 201 (application/json)
+  
+```
+```
+### Editar (Update) [PUT //{id}]
+
+- Request (application/json)
+  - Body
+ 
+```
+  {
+  }
+```
+
+- Response 201 (application/json)
+  
+```
+```
+
+### Excluir (Delete) [DELETE /{id}]
+
+- Response 200 (application/json)
+  
+```
+```
+
 ## Parceiros
+
+### Listar (List) [GET /]
+
+- Response 200 (application/json)
+ 
+```
+```
+
+### Novo (create) [POST /]
+
+- Atributos (object)
+ 
+- Request (application/json)
+  - Body
+ 
+```
+```
+
+- Response 201 (application/json)
+  
+```
+```
+### Editar (Update) [PUT //{id}]
+
+- Request (application/json)
+  - Body
+ 
+```
+  {
+  }
+```
+
+- Response 201 (application/json)
+  
+```
+```
+
+### Excluir (Delete) [DELETE /{id}]
+
+- Response 200 (application/json)
+  
+```
+```
+
 ## Profissionais
+
+### Listar (List) [GET /]
+
+- Response 200 (application/json)
+ 
+```
+```
+
+### Novo (create) [POST /]
+
+- Atributos (object)
+ 
+- Request (application/json)
+  - Body
+ 
+```
+```
+
+- Response 201 (application/json)
+  
+```
+```
+### Editar (Update) [PUT //{id}]
+
+- Request (application/json)
+  - Body
+ 
+```
+  {
+  }
+```
+
+- Response 201 (application/json)
+  
+```
+```
+
+### Excluir (Delete) [DELETE /{id}]
+
+- Response 200 (application/json)
+  
+```
+```
+
 ## Publicações
+
+### Listar (List) [GET /]
+
+- Response 200 (application/json)
+ 
+```
+```
+
+### Novo (create) [POST /]
+
+- Atributos (object)
+ 
+- Request (application/json)
+  - Body
+ 
+```
+```
+
+- Response 201 (application/json)
+  
+```
+```
+### Editar (Update) [PUT //{id}]
+
+- Request (application/json)
+  - Body
+ 
+```
+  {
+  }
+```
+
+- Response 201 (application/json)
+  
+```
+```
+
+### Excluir (Delete) [DELETE /{id}]
+
+- Response 200 (application/json)
+  
+```
+```
+
 ## Reações
+
+### Listar (List) [GET /]
+
+- Response 200 (application/json)
+ 
+```
+```
+
+### Novo (create) [POST /]
+
+- Atributos (object)
+ 
+- Request (application/json)
+  - Body
+ 
+```
+```
+
+- Response 201 (application/json)
+  
+```
+```
+### Editar (Update) [PUT //{id}]
+
+- Request (application/json)
+  - Body
+ 
+```
+  {
+  }
+```
+
+- Response 201 (application/json)
+  
+```
+```
+
+### Excluir (Delete) [DELETE /{id}]
+
+- Response 200 (application/json)
+  
+```
+```
+
 ### Reações_publicacao
+
+### Listar (List) [GET /]
+
+- Response 200 (application/json)
+ 
+```
+```
+
+### Novo (create) [POST /]
+
+- Atributos (object)
+ 
+- Request (application/json)
+  - Body
+ 
+```
+```
+
+- Response 201 (application/json)
+  
+```
+```
+### Editar (Update) [PUT //{id}]
+
+- Request (application/json)
+  - Body
+ 
+```
+  {
+  }
+```
+
+- Response 201 (application/json)
+  
+```
+```
+
+### Excluir (Delete) [DELETE /{id}]
+
+- Response 200 (application/json)
+  
+```
+```
+
 ## Sintomas
+
+### Listar (List) [GET /]
+
+- Response 200 (application/json)
+ 
+```
+```
+
+### Novo (create) [POST /]
+
+- Atributos (object)
+ 
+- Request (application/json)
+  - Body
+ 
+```
+```
+
+- Response 201 (application/json)
+  
+```
+```
+### Editar (Update) [PUT //{id}]
+
+- Request (application/json)
+  - Body
+ 
+```
+  {
+  }
+```
+
+- Response 201 (application/json)
+  
+```
+```
+
+### Excluir (Delete) [DELETE /{id}]
+
+- Response 200 (application/json)
+  
+```
+```
+
 ## Telefones
+
+### Listar (List) [GET /]
+
+- Response 200 (application/json)
+ 
+```
+```
+
+### Novo (create) [POST /]
+
+- Atributos (object)
+ 
+- Request (application/json)
+  - Body
+ 
+```
+```
+
+- Response 201 (application/json)
+  
+```
+```
+### Editar (Update) [PUT //{id}]
+
+- Request (application/json)
+  - Body
+ 
+```
+  {
+  }
+```
+
+- Response 201 (application/json)
+  
+```
+```
+
+### Excluir (Delete) [DELETE /{id}]
+
+- Response 200 (application/json)
+  
+```
+```
+
 ## Tópicos
+
+### Listar (List) [GET /]
+
+- Response 200 (application/json)
+ 
+```
+```
+
+### Novo (create) [POST /]
+
+- Atributos (object)
+ 
+- Request (application/json)
+  - Body
+ 
+```
+```
+
+- Response 201 (application/json)
+  
+```
+```
+### Editar (Update) [PUT //{id}]
+
+- Request (application/json)
+  - Body
+ 
+```
+  {
+  }
+```
+
+- Response 201 (application/json)
+  
+```
+```
+
+### Excluir (Delete) [DELETE /{id}]
+
+- Response 200 (application/json)
+  
+```
+```
+
 ## Usuários
+
+### Listar (List) [GET /]
+
+- Response 200 (application/json)
+ 
+```
+```
+
+### Novo (create) [POST /]
+
+- Atributos (object)
+ 
+- Request (application/json)
+  - Body
+ 
+```
+```
+
+- Response 201 (application/json)
+  
+```
+```
+### Editar (Update) [PUT //{id}]
+
+- Request (application/json)
+  - Body
+ 
+```
+  {
+  }
+```
+
+- Response 201 (application/json)
+  
+```
+```
+
+### Excluir (Delete) [DELETE /{id}]
+
+- Response 200 (application/json)
+  
+```
+```
