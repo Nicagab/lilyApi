@@ -6,15 +6,15 @@
 - Comentários
 - Conteúdos
 - Dias
-- - Dias_Eventos
-- - Dias_Sintomas
+  - Dias_Eventos
+  - Dias_Sintomas
 - Eventos
 - Imagens
 - Parceiros
 - Profissionais
 - Publicações
 - Reações
-- - Reações_publicacao
+  - Reações_publicacao
 - Sintomas
 - Telefones
 - Tópicos
@@ -62,8 +62,7 @@ Informações dos calendários dos usuários
 
 ### Listar (List) [GET /calendario]
 
-- Request (application/json)
-- - Body
+- Response 200 (application/json)
  
 ```
 [
@@ -79,9 +78,63 @@ Informações dos calendários dos usuários
 ### Novo (create) [POST /calendario]
 
 - Atributos (object)
-- - inicioCiclo (number)
+  - inicioCiclo (date) - formato: YYYY-MM-DD
   - duracao (number)
   - idUsuario (number) - fk tabela usuario
+ 
+- Request (application/json)
+  - Body
+ 
+```
+  {
+    "inicioCiclo":	"2000-01-01",
+    "duracao":	5,
+    "idUsuario":	1
+  }
+```
+
+- Response 201 (application/json)
+  
+```
+{
+	 "fieldCount": 0,
+	 "affectedRows": 1,
+	 "insertId": 1,
+	 "serverStatus": 2,
+	 "warningCount": 0,
+	 "message": "",
+	 "protocol41": true,
+	 "changedRows": 0
+}
+```
+### Editar (Update) [PUT /calendario/{id}]
+
+- Request (application/json)
+  - Body
+ 
+```
+  {
+    "inicioCiclo":	"2000-01-01",
+    "duracao":	5,
+    "idUsuario":	1
+  }
+```
+
+- Response 201 (application/json)
+  
+```
+{
+	"fieldCount": 0,
+	"affectedRows": 1,
+	"insertId": 0,
+	"serverStatus": 2,
+	"warningCount": 0,
+	"message": "(Rows matched: 1  Changed: 0  Warnings: 0",
+	"protocol41": true,
+	"changedRows": 0
+}
+```
+    
 ## Comentários
 ## Conteúdos
 ## Dias
