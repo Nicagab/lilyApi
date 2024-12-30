@@ -151,6 +151,22 @@ Informações dos calendários dos usuários
 	"changedRows": 0
 }
 ```
+
+### Detalhar (Read) [GET /calendario/{id}]
+
+- Response 200 (application/json)
+ 
+```
+{
+	"0": {
+		"idCalendario": 1,
+		"inicioCiclo": "2001-01-01T03:00:00.000Z",
+		"duracao": 5,
+		"idUsuario": 1
+	},
+	"dias": []
+}
+```
     
 ## Comentários
 
@@ -199,6 +215,13 @@ Informações dos comentários dos usuários/parceiros
 ```
 ```
 
+### Detalhar (Read) [GET //{id}]
+
+- Response 200 (application/json)
+ 
+```
+```
+
 ## Conteúdos
 
 ### Listar (List) [GET /]
@@ -241,6 +264,13 @@ Informações dos comentários dos usuários/parceiros
 
 - Response 200 (application/json)
   
+```
+```
+
+### Detalhar (Read) [GET //{id}]
+
+- Response 200 (application/json)
+ 
 ```
 ```
 
@@ -289,6 +319,13 @@ Informações dos comentários dos usuários/parceiros
 ```
 ```
 
+### Detalhar (Read) [GET //{id}]
+
+- Response 200 (application/json)
+ 
+```
+```
+
 ### Dias_Eventos
 
 ### Listar (List) [GET /]
@@ -331,6 +368,13 @@ Informações dos comentários dos usuários/parceiros
 
 - Response 200 (application/json)
   
+```
+```
+
+### Detalhar (Read) [GET //{id}]
+
+- Response 200 (application/json)
+ 
 ```
 ```
 
@@ -379,6 +423,13 @@ Informações dos comentários dos usuários/parceiros
 ```
 ```
 
+### Detalhar (Read) [GET //{id}]
+
+- Response 200 (application/json)
+ 
+```
+```
+
 ## Eventos
 
 ### Listar (List) [GET /]
@@ -421,6 +472,13 @@ Informações dos comentários dos usuários/parceiros
 
 - Response 200 (application/json)
   
+```
+```
+
+### Detalhar (Read) [GET //{id}]
+
+- Response 200 (application/json)
+ 
 ```
 ```
 
@@ -469,6 +527,13 @@ Informações dos comentários dos usuários/parceiros
 ```
 ```
 
+### Detalhar (Read) [GET //{id}]
+
+- Response 200 (application/json)
+ 
+```
+```
+
 ## Parceiros
 
 ### Listar (List) [GET /]
@@ -511,6 +576,13 @@ Informações dos comentários dos usuários/parceiros
 
 - Response 200 (application/json)
   
+```
+```
+
+### Detalhar (Read) [GET //{id}]
+
+- Response 200 (application/json)
+ 
 ```
 ```
 
@@ -559,6 +631,13 @@ Informações dos comentários dos usuários/parceiros
 ```
 ```
 
+### Detalhar (Read) [GET //{id}]
+
+- Response 200 (application/json)
+ 
+```
+```
+
 ## Publicações
 
 ### Listar (List) [GET /]
@@ -601,6 +680,13 @@ Informações dos comentários dos usuários/parceiros
 
 - Response 200 (application/json)
   
+```
+```
+
+### Detalhar (Read) [GET //{id}]
+
+- Response 200 (application/json)
+ 
 ```
 ```
 
@@ -649,6 +735,13 @@ Informações dos comentários dos usuários/parceiros
 ```
 ```
 
+### Detalhar (Read) [GET //{id}]
+
+- Response 200 (application/json)
+ 
+```
+```
+
 ### Reações_publicacao
 
 ### Listar (List) [GET /]
@@ -691,6 +784,13 @@ Informações dos comentários dos usuários/parceiros
 
 - Response 200 (application/json)
   
+```
+```
+
+### Detalhar (Read) [GET //{id}]
+
+- Response 200 (application/json)
+ 
 ```
 ```
 
@@ -739,6 +839,13 @@ Informações dos comentários dos usuários/parceiros
 ```
 ```
 
+### Detalhar (Read) [GET //{id}]
+
+- Response 200 (application/json)
+ 
+```
+```
+
 ## Telefones
 
 ### Listar (List) [GET /]
@@ -781,6 +888,13 @@ Informações dos comentários dos usuários/parceiros
 
 - Response 200 (application/json)
   
+```
+```
+
+### Detalhar (Read) [GET //{id}]
+
+- Response 200 (application/json)
+ 
 ```
 ```
 
@@ -829,6 +943,13 @@ Informações dos comentários dos usuários/parceiros
 ```
 ```
 
+### Detalhar (Read) [GET //{id}]
+
+- Response 200 (application/json)
+ 
+```
+```
+
 ## Usuários
 
 ### Listar (List) [GET /]
@@ -871,5 +992,12 @@ Informações dos comentários dos usuários/parceiros
 
 - Response 200 (application/json)
   
+```
+```
+
+### Detalhar (Read) [GET //{id}]
+
+- Response 200 (application/json)
+ 
 ```
 ```
