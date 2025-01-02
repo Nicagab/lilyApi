@@ -68,9 +68,9 @@ Informações dos calendários dos usuários
 [
   {
     "idCalendario": 0,
-    "inicioCiclo":	"0000-00-00T00:00:00.000Z",
-    "duracao":	0,
-    "idUsuario":	0
+    "inicioCiclo": "0000-00-00T00:00:00.000Z",
+    "duracao": 0,
+    "idUsuario": 0
   }
 ]
 ```
@@ -87,9 +87,9 @@ Informações dos calendários dos usuários
  
 ```
   {
-    "inicioCiclo":	"2000-01-01",
-    "duracao":	5,
-    "idUsuario":	1
+    "inicioCiclo": "2000-01-01",
+    "duracao": 5,
+    "idUsuario": 1
   }
 ```
 
@@ -172,66 +172,147 @@ Informações dos calendários dos usuários
 
 Informações dos comentários dos usuários/parceiros
 
-### Listar (List) [GET /]
+### Listar (List) [GET /comentario]
 
 - Response 200 (application/json)
  
 ```
+[
+	{
+		"idComentario": 1,
+		"texto": "Comentário",
+		"dataPostagem": "2001-01-01T02:00:00.000Z",
+		"idUsuario": 1,
+		"idParceiro": null,
+		"idPublicacao": 1
+	}
+]
 ```
 
-### Novo (create) [POST /]
+### Novo (create) [POST /comentario]
 
 - Atributos (object)
+  - texto (string)
+  - dataPostagem (date) - formato YYYY-MM-DD
+  - idUsuario (number) - fk tabela usuario
+  - idParceiro (number) - fk tabela parceiro
+  - idPublicacao (number) - fk tabela publicacao
  
 - Request (application/json)
   - Body
  
 ```
+{
+	"texto": "Comentário",
+	"dataPostagem": "2001-01-01",
+	"idUsuario": 1,
+	"idPublicacao": 1
+}
 ```
 
 - Response 201 (application/json)
   
 ```
+{
+	"fieldCount": 0,
+	"affectedRows": 1,
+	"insertId": 1,
+	"serverStatus": 2,
+	"warningCount": 0,
+	"message": "",
+	"protocol41": true,
+	"changedRows": 0
+}
 ```
-### Editar (Update) [PUT //{id}]
+### Editar (Update) [PUT /comentario/{id}]
 
 - Request (application/json)
   - Body
  
 ```
   {
-  }
+	"texto": "Comentário",
+	"dataPostagem": "2001-01-01",
+	"idUsuario": 1,
+	"idPublicacao": 1
+}
 ```
 
 - Response 201 (application/json)
   
 ```
+{
+	"fieldCount": 0,
+	"affectedRows": 0,
+	"insertId": 0,
+	"serverStatus": 2,
+	"warningCount": 0,
+	"message": "(Rows matched: 0  Changed: 0  Warnings: 0",
+	"protocol41": true,
+	"changedRows": 0
+}
 ```
 
-### Excluir (Delete) [DELETE /{id}]
+### Excluir (Delete) [DELETE /comentario/{id}]
 
 - Response 200 (application/json)
   
 ```
+{
+	"fieldCount": 0,
+	"affectedRows": 0,
+	"insertId": 0,
+	"serverStatus": 2,
+	"warningCount": 0,
+	"message": "",
+	"protocol41": true,
+	"changedRows": 0
+}
 ```
 
-### Detalhar (Read) [GET //{id}]
+### Detalhar (Read) [GET /comentario/{id}]
 
 - Response 200 (application/json)
  
 ```
+[
+	{
+		"idComentario": 1,
+		"texto": "Comentário",
+		"dataPostagem": "2001-01-01T02:00:00.000Z",
+		"idUsuario": 1,
+		"idParceiro": null,
+		"idPublicacao": 1
+	}
+]
 ```
 
 ## Conteúdos
 
-### Listar (List) [GET /]
+### Listar (List) [GET /conteudo/?{tipo}]
+
+- parameters
+  - Tipo (string) - Exibe apenas conteudos daquele tipo. Valores possiveis:
+    - noticia
+    - artigo
 
 - Response 200 (application/json)
  
 ```
+[
+	{
+		"idConteudo": 1,
+		"titulo": "Título",
+		"palavraChave": "menstruacao",
+		"resumo": "Resumo",
+		"texto": "Texto",
+		"tipo": "artigo",
+		"idUsuario": 1
+	}
+]
 ```
 
-### Novo (create) [POST /]
+### Novo (create) [POST /conteudo]
 
 - Atributos (object)
  
@@ -239,48 +320,114 @@ Informações dos comentários dos usuários/parceiros
   - Body
  
 ```
+{
+		"titulo": "Título",
+		"palavraChave": "menstruacao",
+		"resumo": "Resumo",
+		"texto": "Texto",
+		"tipo": "artigo",
+		"idUsuario": 1
+}
 ```
 
 - Response 201 (application/json)
   
 ```
+{
+	"fieldCount": 0,
+	"affectedRows": 1,
+	"insertId": 1,
+	"serverStatus": 2,
+	"warningCount": 0,
+	"message": "",
+	"protocol41": true,
+	"changedRows": 0
+}
 ```
-### Editar (Update) [PUT //{id}]
+
+### Editar (Update) [PUT /conteudo/{id}]
 
 - Request (application/json)
   - Body
  
 ```
   {
-  }
+		"titulo": "Título",
+		"palavraChave": "menstruacao",
+		"resumo": "Resumo",
+		"texto": "Texto",
+		"tipo": "artigo",
+		"idUsuario": 1
+}
 ```
 
 - Response 201 (application/json)
   
 ```
+{
+	"fieldCount": 0,
+	"affectedRows": 1,
+	"insertId": 0,
+	"serverStatus": 2,
+	"warningCount": 0,
+	"message": "(Rows matched: 1  Changed: 0  Warnings: 0",
+	"protocol41": true,
+	"changedRows": 0
+}
 ```
 
-### Excluir (Delete) [DELETE /{id}]
+### Excluir (Delete) [DELETE /conteudo/{id}]
 
 - Response 200 (application/json)
   
 ```
+{
+	"fieldCount": 0,
+	"affectedRows": 1,
+	"insertId": 0,
+	"serverStatus": 2,
+	"warningCount": 0,
+	"message": "",
+	"protocol41": true,
+	"changedRows": 0
+}
 ```
 
-### Detalhar (Read) [GET //{id}]
+### Detalhar (Read) [GET /conteudo/{id}]
 
 - Response 200 (application/json)
  
 ```
+{
+	"0":{
+		"titulo": "Título",
+		"palavraChave": "menstruacao",
+		"resumo": "Resumo",
+		"texto": "Texto",
+		"tipo": "artigo",
+		"idUsuario": 1
+	},
+	"topicos": [],
+	"imagens": []
+}
 ```
 
 ## Dias
 
-### Listar (List) [GET /]
+### Listar (List) [GET /dia]
 
 - Response 200 (application/json)
  
 ```
+[
+	{
+		"idDia": 1,
+		"dataZ": "2001-01-01T00:00:00.000Z",
+		"emocional": "Ótimo",
+		"anotacao": "Anotação",
+		"idCalendario": 1
+	}
+]
 ```
 
 ### Novo (create) [POST /]
@@ -655,11 +802,26 @@ Informações dos comentários dos usuários/parceiros
   - Body
  
 ```
+{
+	"texto": "Publicacao",
+	"dataPostagem": "2001-01-01",
+	"idUsuario": 1
+}
 ```
 
 - Response 201 (application/json)
   
 ```
+{
+	"fieldCount": 0,
+	"affectedRows": 1,
+	"insertId": 5,
+	"serverStatus": 2,
+	"warningCount": 0,
+	"message": "",
+	"protocol41": true,
+	"changedRows": 0
+}
 ```
 ### Editar (Update) [PUT //{id}]
 
