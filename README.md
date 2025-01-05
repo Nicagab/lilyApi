@@ -115,7 +115,7 @@ Informações da tabela relacional das tabelas *dia* e *evento*
   - idEvento (number)
   - horario (datetime) -> formato: hh:mm
 
-## Dias_Sintomas [/disintoma/${id}]
+## Dias_Sintomas [/diasintoma/${id}]
 
 Informações da tabela relacional das tabelas *dia* e *sintoma*
 
