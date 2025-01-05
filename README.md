@@ -56,1110 +56,205 @@ URL: http://localhost:3001
 
 # Grupo de Recursos
 
-## Calendários [/calendario]
+# Calendários [/calendario/${id}]
 
 Informações dos calendários dos usuários
 
-### Listar (List) [GET /calendario]
-
-- Response 200 (application/json)
- 
-```
-[
-  {
-    "idCalendario": 0,
-    "inicioCiclo": "0000-00-00T00:00:00.000Z",
-    "duracao": 0,
-    "idUsuario": 0
-  }
-]
-```
-
-### Novo (create) [POST /calendario]
-
-- Atributos (object)
-  - inicioCiclo (date) - formato: YYYY-MM-DD
+- Atributos:
+  - idCalendario (number)
+  - inicioCiclo (date) -> formato: YYYY-MM-DD
   - duracao (number)
-  - idUsuario (number) - fk tabela usuario
- 
-- Request (application/json)
-  - Body
- 
-```
-  {
-    "inicioCiclo": "2000-01-01",
-    "duracao": 5,
-    "idUsuario": 1
-  }
-```
-
-- Response 201 (application/json)
-  
-```
-{
-	 "fieldCount": 0,
-	 "affectedRows": 1,
-	 "insertId": 1,
-	 "serverStatus": 2,
-	 "warningCount": 0,
-	 "message": "",
-	 "protocol41": true,
-	 "changedRows": 0
-}
-```
-### Editar (Update) [PUT /calendario/{id}]
-
-- Request (application/json)
-  - Body
- 
-```
-  {
-    "inicioCiclo":	"2000-01-01",
-    "duracao":	5,
-    "idUsuario":	1
-  }
-```
-
-- Response 201 (application/json)
-  
-```
-{
-	"fieldCount": 0,
-	"affectedRows": 1,
-	"insertId": 0,
-	"serverStatus": 2,
-	"warningCount": 0,
-	"message": "(Rows matched: 1  Changed: 0  Warnings: 0",
-	"protocol41": true,
-	"changedRows": 0
-}
-```
-
-### Excluir (Delete) [DELETE calendario/{id}]
-
-- Response 200 (application/json)
-  
-```
-{
-	"fieldCount": 0,
-	"affectedRows": 1,
-	"insertId": 0,
-	"serverStatus": 2,
-	"warningCount": 0,
-	"message": "",
-	"protocol41": true,
-	"changedRows": 0
-}
-```
-
-### Detalhar (Read) [GET /calendario/{id}]
-
-- Response 200 (application/json)
- 
-```
-{
-	"0": {
-		"idCalendario": 1,
-		"inicioCiclo": "2001-01-01T03:00:00.000Z",
-		"duracao": 5,
-		"idUsuario": 1
-	},
-	"dias": []
-}
-```
+  - idUsuario (number)
     
-## Comentários
+# Comentários [/comentario/${id}]
 
 Informações dos comentários dos usuários/parceiros
 
-### Listar (List) [GET /comentario]
-
-- Response 200 (application/json)
- 
-```
-[
-	{
-		"idComentario": 1,
-		"texto": "Comentário",
-		"dataPostagem": "2001-01-01T02:00:00.000Z",
-		"idUsuario": 1,
-		"idParceiro": null,
-		"idPublicacao": 1
-	}
-]
-```
-
-### Novo (create) [POST /comentario]
-
-- Atributos (object)
+- Atributos:
+  - idComentario (number)
   - texto (string)
-  - dataPostagem (date) - formato YYYY-MM-DD
-  - idUsuario (number) - fk tabela usuario
-  - idParceiro (number) - fk tabela parceiro
-  - idPublicacao (number) - fk tabela publicacao
- 
-- Request (application/json)
-  - Body
- 
-```
-{
-	"texto": "Comentário",
-	"dataPostagem": "2001-01-01",
-	"idUsuario": 1,
-	"idPublicacao": 1
-}
-```
+  - dataPostagem (date) -> formato: YYYY-MM-DD
+  - idUsuario (number)
+  - idParceiro (number)
+  - idPublicacao (number)
 
-- Response 201 (application/json)
+# Conteúdos [/conteudo/${id}]
+
+Informações dos conteúdos postados
+
+- Atributos:
+  - idConteudo (number)
+  - titulo (string)
+  - palavraChave (string) -> Valores possíveis: (menstruacao, higiene, saude, dica)
+  - resumo (string)
+  - texto (string)
+  - tipo (string) -> Valores possíveis: (noticia, artigo)
+  - idUsuario (number)
+
+- Outras rotas:
+  - [/conteudo/tipo/${tipo}] -> Filtra os usuários pelo atributo tipo
+
+# Dias [/dia/${id}]
+
+Informações dos dias registrados do calendário do usuário
+
+- Atributos:
+  - idDia (number)
+  - dataZ (string)
+  - emocional (string)
+  - anotacao (string)
+  - idCalendario (number)
+
+## Dias_Eventos [/diaevento/${id}]
+
+Informações da tabela relacional das tabelas *dia* e *evento*
+
+- Atributos:
+  - idDiaEvento (number)
+  - idDia (number)
+  - idEvento (number)
+  - horario (datetime) -> formato: hh:mm
+
+## Dias_Sintomas [/disintoma/${id}]
+
+Informações da tabela relacional das tabelas *dia* e *sintoma*
+
+- Atributos:
+  - idDiaSintoma (number)
+  - idDia (number)
+  - idSintoma (number)
+
+# Eventos [/evento/${id}]
+
+Informações dos eventos do usuário
+
+- Atributos:
+  - idEvento (number)
+  - nome (string)
+
+# Imagens [/imagem/${id}]
+
+Informações das imagens dos conteúdos e usuários
+
+- Atributos:
+  - idImagem (number)
+  - nome (string)
+  - caminho (string)
+  - tipo (string)
+  - idConteudo (number)
+  - idUsuario (number)
+
+- Outras rotas:
+  - [/public/imgs/${nome}] -> Arquivo da imagem
   
-```
-{
-	"fieldCount": 0,
-	"affectedRows": 1,
-	"insertId": 1,
-	"serverStatus": 2,
-	"warningCount": 0,
-	"message": "",
-	"protocol41": true,
-	"changedRows": 0
-}
-```
-### Editar (Update) [PUT /comentario/{id}]
+# Parceiros [/parceiro/${id}]
 
-- Request (application/json)
-  - Body
- 
-```
-  {
-	"texto": "Comentário",
-	"dataPostagem": "2001-01-01",
-	"idUsuario": 1,
-	"idPublicacao": 1
-}
-```
+Informações dos parceiros
 
-- Response 201 (application/json)
+- Atributos:
+  - idParceiro (number)
+  - nomeFantasia (string)
+  - cnpj (string)
+  - senha (string)
+  - email (string)
+  - endereco (string)
+  - tipo (string) -> Valores possíveis: (empresa, ong)
+
+- Outras rotas:
+  - [parceiro/tipo/${tipo}] -> Filtra os usuários pelo atributo tipo
   
-```
-{
-	"fieldCount": 0,
-	"affectedRows": 0,
-	"insertId": 0,
-	"serverStatus": 2,
-	"warningCount": 0,
-	"message": "(Rows matched: 0  Changed: 0  Warnings: 0",
-	"protocol41": true,
-	"changedRows": 0
-}
-```
+# Profissionais [/profissional/${id}]
 
-### Excluir (Delete) [DELETE /comentario/{id}]
+Informações dos profissionais
 
-- Response 200 (application/json)
-  
-```
-{
-	"fieldCount": 0,
-	"affectedRows": 0,
-	"insertId": 0,
-	"serverStatus": 2,
-	"warningCount": 0,
-	"message": "",
-	"protocol41": true,
-	"changedRows": 0
-}
-```
+- Atributos:
+  - idProfissional (number)
+  - resumo (string)
+  - crm (string)
+  - cren (string)
+  - cpf (string)
+  - cnpj (string)
+  - idUsuario (number)
 
-### Detalhar (Read) [GET /comentario/{id}]
+# Publicações [/publicacao/${id}]
 
-- Response 200 (application/json)
- 
-```
-[
-	{
-		"idComentario": 1,
-		"texto": "Comentário",
-		"dataPostagem": "2001-01-01T02:00:00.000Z",
-		"idUsuario": 1,
-		"idParceiro": null,
-		"idPublicacao": 1
-	}
-]
-```
+Informações das publicações dos usuários e parceiros
 
-## Conteúdos
+- Atributos:
+  - idPublicacao (number)
+  - titulo (string)
+  - texto (string)
+  - dataPostagem (date) -> formato: YYYY-MM-DD
+  - idUsuario (number)
+  - idParceiro (number)
 
-### Listar (List) [GET /conteudo/?{tipo}]
+- Outras rotas:
+  - [publicacao/comentarios/${id}] -> Informações de todos os comentários da publicação com respectivo id
 
-- parameters
-  - Tipo (string) - Exibe apenas conteudos daquele tipo. Valores possiveis:
-    - noticia
-    - artigo
+# Reações [/reacao/${id}]
 
-- Response 200 (application/json)
- 
-```
-[
-	{
-		"idConteudo": 1,
-		"titulo": "Título",
-		"palavraChave": "menstruacao",
-		"resumo": "Resumo",
-		"texto": "Texto",
-		"tipo": "artigo",
-		"idUsuario": 1
-	}
-]
-```
+Informações das Reações
 
-### Novo (create) [POST /conteudo]
+- Atributos:
+  - idReacao (number)
+  - nome (string)
 
-- Atributos (object)
- 
-- Request (application/json)
-  - Body
- 
-```
-{
-		"titulo": "Título",
-		"palavraChave": "menstruacao",
-		"resumo": "Resumo",
-		"texto": "Texto",
-		"tipo": "artigo",
-		"idUsuario": 1
-}
-```
+## Reações_publicacao [/reacaoPublicacao/${id}]
 
-- Response 201 (application/json)
-  
-```
-{
-	"fieldCount": 0,
-	"affectedRows": 1,
-	"insertId": 1,
-	"serverStatus": 2,
-	"warningCount": 0,
-	"message": "",
-	"protocol41": true,
-	"changedRows": 0
-}
-```
+Informações da tabela relacional das tabelas *reacao* e *publicacao*
 
-### Editar (Update) [PUT /conteudo/{id}]
+- Atributos:
+  - idReacaoPublicacao (number)
+  - idReacao (number)
+  - idPublicacao (number)
+  - idUsuario (number)
 
-- Request (application/json)
-  - Body
- 
-```
-  {
-		"titulo": "Título",
-		"palavraChave": "menstruacao",
-		"resumo": "Resumo",
-		"texto": "Texto",
-		"tipo": "artigo",
-		"idUsuario": 1
-}
-```
+# Sintomas [/sintoma/${id}]
 
-- Response 201 (application/json)
-  
-```
-{
-	"fieldCount": 0,
-	"affectedRows": 1,
-	"insertId": 0,
-	"serverStatus": 2,
-	"warningCount": 0,
-	"message": "(Rows matched: 1  Changed: 0  Warnings: 0",
-	"protocol41": true,
-	"changedRows": 0
-}
-```
+Informações dos sintomas
 
-### Excluir (Delete) [DELETE /conteudo/{id}]
+- Atributos:
+  - idSintoma (number)
+  - nome (string)
+  - emoji (number)
+  - tipo (string) -> Valores possíveis: (fisico,emocional)
 
-- Response 200 (application/json)
-  
-```
-{
-	"fieldCount": 0,
-	"affectedRows": 1,
-	"insertId": 0,
-	"serverStatus": 2,
-	"warningCount": 0,
-	"message": "",
-	"protocol41": true,
-	"changedRows": 0
-}
-```
+# Telefones [/telefone/${id}]
 
-### Detalhar (Read) [GET /conteudo/{id}]
+Informações dos telefones dos usuários e parceiros
 
-- Response 200 (application/json)
- 
-```
-{
-	"0":{
-		"titulo": "Título",
-		"palavraChave": "menstruacao",
-		"resumo": "Resumo",
-		"texto": "Texto",
-		"tipo": "artigo",
-		"idUsuario": 1
-	},
-	"topicos": [],
-	"imagens": []
-}
-```
+- Atributos:
+  - idTelefone (number)
+  - numero (number)
+  - ddd (number)
+  - tipo (string) -> Valores possíveis: (telefone,celular)
+  - idParceiro (number)
+  - idUsuario (number)
+  - idProfissional (number)
 
-## Dias
+# Tópicos [/topico/${id}]
 
-### Listar (List) [GET /dia]
+Informações dos tópicos dos conteúdos
 
-- Response 200 (application/json)
- 
-```
-[
-	{
-		"idDia": 1,
-		"dataZ": "2001-01-01T00:00:00.000Z",
-		"emocional": "Ótimo",
-		"anotacao": "Anotação",
-		"idCalendario": 1
-	}
-]
-```
+- Atributos:
+  - idTopico (number)
+  - titulo (string)
+  - texto (string)
+  - posicao (number)
+  - idConteudo (number)
 
-### Novo (create) [POST /]
+# Usuários [/usuario/${id}]
 
-- Atributos (object)
- 
-- Request (application/json)
-  - Body
- 
-```
-```
+Informações dos usuários
 
-- Response 201 (application/json)
-  
-```
-```
-### Editar (Update) [PUT //{id}]
+- Atributos:
+  - idUsuario (number)
+  - username (string)
+  - email (string)
+  - senha (string)
+  - nome (string)
+  - dataNasc (date) -> formato: YYYY-MM-DD
+  - tipo (string) -> Valores possíveis: (comum, profissional, admin)  
 
-- Request (application/json)
-  - Body
- 
-```
-  {
-  }
-```
-
-- Response 201 (application/json)
-  
-```
-```
-
-### Excluir (Delete) [DELETE /{id}]
-
-- Response 200 (application/json)
-  
-```
-```
-
-### Detalhar (Read) [GET //{id}]
-
-- Response 200 (application/json)
- 
-```
-```
-
-### Dias_Eventos
-
-### Listar (List) [GET /]
-
-- Response 200 (application/json)
- 
-```
-```
-
-### Novo (create) [POST /]
-
-- Atributos (object)
- 
-- Request (application/json)
-  - Body
- 
-```
-```
-
-- Response 201 (application/json)
-  
-```
-```
-### Editar (Update) [PUT //{id}]
-
-- Request (application/json)
-  - Body
- 
-```
-  {
-  }
-```
-
-- Response 201 (application/json)
-  
-```
-```
-
-### Excluir (Delete) [DELETE /{id}]
-
-- Response 200 (application/json)
-  
-```
-```
-
-### Detalhar (Read) [GET //{id}]
-
-- Response 200 (application/json)
- 
-```
-```
-
-### Dias_Sintomas
-
-### Listar (List) [GET /]
-
-- Response 200 (application/json)
- 
-```
-```
-
-### Novo (create) [POST /]
-
-- Atributos (object)
- 
-- Request (application/json)
-  - Body
- 
-```
-```
-
-- Response 201 (application/json)
-  
-```
-```
-### Editar (Update) [PUT //{id}]
-
-- Request (application/json)
-  - Body
- 
-```
-  {
-  }
-```
-
-- Response 201 (application/json)
-  
-```
-```
-
-### Excluir (Delete) [DELETE /{id}]
-
-- Response 200 (application/json)
-  
-```
-```
-
-### Detalhar (Read) [GET //{id}]
-
-- Response 200 (application/json)
- 
-```
-```
-
-## Eventos
-
-### Listar (List) [GET /]
-
-- Response 200 (application/json)
- 
-```
-```
-
-### Novo (create) [POST /]
-
-- Atributos (object)
- 
-- Request (application/json)
-  - Body
- 
-```
-```
-
-- Response 201 (application/json)
-  
-```
-```
-### Editar (Update) [PUT //{id}]
-
-- Request (application/json)
-  - Body
- 
-```
-  {
-  }
-```
-
-- Response 201 (application/json)
-  
-```
-```
-
-### Excluir (Delete) [DELETE /{id}]
-
-- Response 200 (application/json)
-  
-```
-```
-
-### Detalhar (Read) [GET //{id}]
-
-- Response 200 (application/json)
- 
-```
-```
-
-## Imagens
-
-### Listar (List) [GET /]
-
-- Response 200 (application/json)
- 
-```
-```
-
-### Novo (create) [POST /]
-
-- Atributos (object)
- 
-- Request (application/json)
-  - Body
- 
-```
-```
-
-- Response 201 (application/json)
-  
-```
-```
-### Editar (Update) [PUT //{id}]
-
-- Request (application/json)
-  - Body
- 
-```
-  {
-  }
-```
-
-- Response 201 (application/json)
-  
-```
-```
-
-### Excluir (Delete) [DELETE /{id}]
-
-- Response 200 (application/json)
-  
-```
-```
-
-### Detalhar (Read) [GET //{id}]
-
-- Response 200 (application/json)
- 
-```
-```
-
-## Parceiros
-
-### Listar (List) [GET /]
-
-- Response 200 (application/json)
- 
-```
-```
-
-### Novo (create) [POST /]
-
-- Atributos (object)
- 
-- Request (application/json)
-  - Body
- 
-```
-```
-
-- Response 201 (application/json)
-  
-```
-```
-### Editar (Update) [PUT //{id}]
-
-- Request (application/json)
-  - Body
- 
-```
-  {
-  }
-```
-
-- Response 201 (application/json)
-  
-```
-```
-
-### Excluir (Delete) [DELETE /{id}]
-
-- Response 200 (application/json)
-  
-```
-```
-
-### Detalhar (Read) [GET //{id}]
-
-- Response 200 (application/json)
- 
-```
-```
-
-## Profissionais
-
-### Listar (List) [GET /]
-
-- Response 200 (application/json)
- 
-```
-```
-
-### Novo (create) [POST /]
-
-- Atributos (object)
- 
-- Request (application/json)
-  - Body
- 
-```
-```
-
-- Response 201 (application/json)
-  
-```
-```
-### Editar (Update) [PUT //{id}]
-
-- Request (application/json)
-  - Body
- 
-```
-  {
-  }
-```
-
-- Response 201 (application/json)
-  
-```
-```
-
-### Excluir (Delete) [DELETE /{id}]
-
-- Response 200 (application/json)
-  
-```
-```
-
-### Detalhar (Read) [GET //{id}]
-
-- Response 200 (application/json)
- 
-```
-```
-
-## Publicações
-
-### Listar (List) [GET /]
-
-- Response 200 (application/json)
- 
-```
-```
-
-### Novo (create) [POST /]
-
-- Atributos (object)
- 
-- Request (application/json)
-  - Body
- 
-```
-{
-	"texto": "Publicacao",
-	"dataPostagem": "2001-01-01",
-	"idUsuario": 1
-}
-```
-
-- Response 201 (application/json)
-  
-```
-{
-	"fieldCount": 0,
-	"affectedRows": 1,
-	"insertId": 5,
-	"serverStatus": 2,
-	"warningCount": 0,
-	"message": "",
-	"protocol41": true,
-	"changedRows": 0
-}
-```
-### Editar (Update) [PUT //{id}]
-
-- Request (application/json)
-  - Body
- 
-```
-  {
-  }
-```
-
-- Response 201 (application/json)
-  
-```
-```
-
-### Excluir (Delete) [DELETE /{id}]
-
-- Response 200 (application/json)
-  
-```
-```
-
-### Detalhar (Read) [GET //{id}]
-
-- Response 200 (application/json)
- 
-```
-```
-
-## Reações
-
-### Listar (List) [GET /]
-
-- Response 200 (application/json)
- 
-```
-```
-
-### Novo (create) [POST /]
-
-- Atributos (object)
- 
-- Request (application/json)
-  - Body
- 
-```
-```
-
-- Response 201 (application/json)
-  
-```
-```
-### Editar (Update) [PUT //{id}]
-
-- Request (application/json)
-  - Body
- 
-```
-  {
-  }
-```
-
-- Response 201 (application/json)
-  
-```
-```
-
-### Excluir (Delete) [DELETE /{id}]
-
-- Response 200 (application/json)
-  
-```
-```
-
-### Detalhar (Read) [GET //{id}]
-
-- Response 200 (application/json)
- 
-```
-```
-
-### Reações_publicacao
-
-### Listar (List) [GET /]
-
-- Response 200 (application/json)
- 
-```
-```
-
-### Novo (create) [POST /]
-
-- Atributos (object)
- 
-- Request (application/json)
-  - Body
- 
-```
-```
-
-- Response 201 (application/json)
-  
-```
-```
-### Editar (Update) [PUT //{id}]
-
-- Request (application/json)
-  - Body
- 
-```
-  {
-  }
-```
-
-- Response 201 (application/json)
-  
-```
-```
-
-### Excluir (Delete) [DELETE /{id}]
-
-- Response 200 (application/json)
-  
-```
-```
-
-### Detalhar (Read) [GET //{id}]
-
-- Response 200 (application/json)
- 
-```
-```
-
-## Sintomas
-
-### Listar (List) [GET /]
-
-- Response 200 (application/json)
- 
-```
-```
-
-### Novo (create) [POST /]
-
-- Atributos (object)
- 
-- Request (application/json)
-  - Body
- 
-```
-```
-
-- Response 201 (application/json)
-  
-```
-```
-### Editar (Update) [PUT //{id}]
-
-- Request (application/json)
-  - Body
- 
-```
-  {
-  }
-```
-
-- Response 201 (application/json)
-  
-```
-```
-
-### Excluir (Delete) [DELETE /{id}]
-
-- Response 200 (application/json)
-  
-```
-```
-
-### Detalhar (Read) [GET //{id}]
-
-- Response 200 (application/json)
- 
-```
-```
-
-## Telefones
-
-### Listar (List) [GET /]
-
-- Response 200 (application/json)
- 
-```
-```
-
-### Novo (create) [POST /]
-
-- Atributos (object)
- 
-- Request (application/json)
-  - Body
- 
-```
-```
-
-- Response 201 (application/json)
-  
-```
-```
-### Editar (Update) [PUT //{id}]
-
-- Request (application/json)
-  - Body
- 
-```
-  {
-  }
-```
-
-- Response 201 (application/json)
-  
-```
-```
-
-### Excluir (Delete) [DELETE /{id}]
-
-- Response 200 (application/json)
-  
-```
-```
-
-### Detalhar (Read) [GET //{id}]
-
-- Response 200 (application/json)
- 
-```
-```
-
-## Tópicos
-
-### Listar (List) [GET /]
-
-- Response 200 (application/json)
- 
-```
-```
-
-### Novo (create) [POST /]
-
-- Atributos (object)
- 
-- Request (application/json)
-  - Body
- 
-```
-```
-
-- Response 201 (application/json)
-  
-```
-```
-### Editar (Update) [PUT //{id}]
-
-- Request (application/json)
-  - Body
- 
-```
-  {
-  }
-```
-
-- Response 201 (application/json)
-  
-```
-```
-
-### Excluir (Delete) [DELETE /{id}]
-
-- Response 200 (application/json)
-  
-```
-```
-
-### Detalhar (Read) [GET //{id}]
-
-- Response 200 (application/json)
- 
-```
-```
-
-## Usuários
-
-### Listar (List) [GET /]
-
-- Response 200 (application/json)
- 
-```
-```
-
-### Novo (create) [POST /]
-
-- Atributos (object)
- 
-- Request (application/json)
-  - Body
- 
-```
-```
-
-- Response 201 (application/json)
-  
-```
-```
-### Editar (Update) [PUT //{id}]
-
-- Request (application/json)
-  - Body
- 
-```
-  {
-  }
-```
-
-- Response 201 (application/json)
-  
-```
-```
-
-### Excluir (Delete) [DELETE /{id}]
-
-- Response 200 (application/json)
-  
-```
-```
-
-### Detalhar (Read) [GET //{id}]
-
-- Response 200 (application/json)
- 
-```
-```
+- Outras rotas:
+  - [/usuario/tipo/${tipo}] -> Filtra os usuários pelo atributo tipo
